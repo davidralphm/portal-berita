@@ -50,7 +50,7 @@ class NewsManagementController extends Controller
                 'title' => 'required',
                 'category' => [
                     'required',
-                    Rule::in(['olahraga', 'kuliner', 'kesehatan', 'otomotif', 'teknologi', 'ekonomi', 'politik'])
+                    Rule::in(['sports', 'culinary', 'health', 'automotive', 'technology', 'economy', 'politics'])
                 ],
                 'body' => 'required',
             ],
@@ -95,7 +95,7 @@ class NewsManagementController extends Controller
                 'title' => 'required',
                 'category' => [
                     'required',
-                    Rule::in(['olahraga', 'kuliner', 'kesehatan', 'otomotif', 'teknologi', 'ekonomi', 'politik'])
+                    Rule::in(['sports', 'culinary', 'health', 'automotive', 'technology', 'economy', 'politics'])
                 ],
                 'body' => 'required',
             ],

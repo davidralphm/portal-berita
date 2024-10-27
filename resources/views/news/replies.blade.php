@@ -13,11 +13,13 @@
                         {{ $reply->user->name }}
                         &nbsp;
 
-                        <a href="/report/user/{{ $reply->user->id }}" style="color: black">
+                        <a href="/report/user/{{ $reply->user->id }}" style="color: black; text-decoration: none">
                             @if ($reply->user->isReported())
                                 <i class="fas fa-flag"></i>
                             @else
                                 <i class="far fa-flag"></i>
+
+                                Report User
                             @endif
                         </a>
                     </h5>
@@ -51,7 +53,7 @@
                             @if ($reply->isReported())
                                 <i class="fas fa-flag"></i> Edit Report
                             @else
-                                <i class="far fa-flag"></i> Report
+                                <i class="far fa-flag"></i> Report Comment
                             @endif
                         </a>
                     </b>
@@ -65,7 +67,7 @@
                     @if ($reply->user_id == Auth::id())
                         <a href="/comment/{{ $reply->id }}" class="btn btn-success">Edit</a>
                         
-                        <form action="/comment/{{ $reply->id }}" method="post">
+                        <form action="/comment/{{ $reply->id }}" method="post" class="ms-3">
                             @csrf
                             @method('DELETE')
 

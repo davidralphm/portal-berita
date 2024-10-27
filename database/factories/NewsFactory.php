@@ -17,13 +17,13 @@ class NewsFactory extends Factory
      */
 
     private static array $CATEGORIES = [
-        'kuliner',
-        'kesehatan',
-        'otomotif',
-        'olahraga',
-        'politik',
-        'ekonomi',
-        'teknologi',
+        'culinary',
+        'health',
+        'automotive',
+        'sports',
+        'politics',
+        'economy',
+        'technology',
     ];
 
     private static int $CATEGORY_INDEX = -1;

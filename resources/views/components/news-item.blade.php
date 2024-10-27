@@ -42,7 +42,7 @@
                     @if ($news->isReported())
                         <i class="fas fa-flag"></i> Edit Report
                     @else
-                        <i class="far fa-flag"></i> Report
+                        <i class="far fa-flag"></i> Report News
                     @endif
                 </a>
                 &nbsp;
@@ -60,13 +60,7 @@
         </div>
 
         <div class="d-flex mt-3">
-            <a href="/{{ $news->slug }}" class="btn btn-primary me-3">Visit</a>
-
-            <!-- @if ($news->isBookmarked())
-                <a href="/{{ $news->slug }}/removeBookmark" class="btn btn-danger">Remove from bookmarks</a>
-            @else
-                <a href="/{{ $news->slug }}/addBookmark" class="btn btn-success">Add to bookmarks</a>
-            @endif -->
+            <a href="/{{ $news->slug }}" class="btn btn-primary me-3">View</a>
         </div>
     </div>
 </div>

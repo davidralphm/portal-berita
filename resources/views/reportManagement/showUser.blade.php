@@ -16,7 +16,7 @@
 
             <hr>
 
-            <input type="submit" value="Delete Report" class="btn btn-danger">
+            <input type="submit" value="Delete" class="btn btn-danger">
         </form>
     </div>
 @endsection

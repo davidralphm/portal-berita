@@ -29,23 +29,18 @@
                 <input class="form-control" type="text" name="author" id="author" disabled value="{{ $news->author }}">
             </div>
 
-            <!-- <div class="my-4">
-                <label for="category" class="form-label">Category</label>
-                <input class="form-control" type="text" name="category" id="category" value="{{ $news->category }}">
-            </div> -->
-
             <div class="my-4">
                 <label for="category" class="form-label">Category</label>
 
                 <select class="form-control" name="category" id="category">
-                    <option value="" disabled>Pilih Kategori</option>
-                    <option value="olahraga" @if($news->category == 'olahraga') selected @endif>Olahraga</option>
-                    <option value="kuliner" @if($news->category == 'kuliner') selected @endif>Kuliner</option>
-                    <option value="kesehatan" @if($news->category == 'kesehatan') selected @endif>Kesehatan</option>
-                    <option value="otomotif" @if($news->category == 'otomotif') selected @endif>Otomotif</option>
-                    <option value="teknologi" @if($news->category == 'teknologi') selected @endif>Teknologi</option>
-                    <option value="ekonomi" @if($news->category == 'ekonomi') selected @endif>Ekonomi</option>
-                    <option value="politik" @if($news->category == 'politik') selected @endif>Politik</option>
+                    <option value="" disabled>Choose Category</option>
+                    <option value="sports" @if($news->category == 'sports') selected @endif>Sports</option>
+                    <option value="culinary" @if($news->category == 'culinary') selected @endif>Culinary</option>
+                    <option value="health" @if($news->category == 'health') selected @endif>Health</option>
+                    <option value="automotive" @if($news->category == 'automotive') selected @endif>Automotive</option>
+                    <option value="technology" @if($news->category == 'technology') selected @endif>Technology</option>
+                    <option value="economy" @if($news->category == 'economy') selected @endif>Economy</option>
+                    <option value="politics" @if($news->category == 'politics') selected @endif>Politics</option>
                 </select>
             </div>
 
@@ -84,19 +79,9 @@
                 <textarea class="form-control" type="text" name="body" id="body" rows="8">{{ $news->body }}</textarea>
             </div>
 
-            <!-- <div class="my-4">
-                <label for="type" class="form-label">Type</label>
-
-                <select class="form-control" name="type" id="type">
-                    <option value="user" @if($news->type == 'user') selected @endif>User</option>
-                    <option value="editor" @if($news->type == 'editor') selected @endif>Editor</option>
-                    <option value="admin" @if($news->type == 'admin') selected @endif>Administrator</option>
-                </select>
-            </div> -->
-
             <hr>
 
-            <input type="submit" value="Update News" class="btn btn-primary">
+            <input type="submit" value="Save" class="btn btn-primary">
         </form>
 
         <ul class="my-2">
@@ -131,7 +116,7 @@
                 @method('DELETE')
                 @csrf
     
-                <input type="submit" value="Delete News" class="btn btn-danger">
+                <input type="submit" value="Delete" class="btn btn-danger">
             </form>
         </div>
 

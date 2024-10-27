@@ -24,7 +24,7 @@ class NewsController extends Controller
             ['Most recent news', $mostRecent]
         ];
 
-        foreach (array('kuliner', 'olahraga', 'politik', 'ekonomi', 'otomotif', 'teknologi', 'kesehatan') as $value) {
+        foreach (array('culinary', 'sports', 'politics', 'economy', 'automotive', 'technology', 'health') as $value) {
             $news[] = [
                 'Most recent from ' . $value,
                 News::where('category', '=', $value)->orderByDesc('id')->limit(5)->get()

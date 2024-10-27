@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Beranda</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     
                     @if (Auth::check())
@@ -49,17 +49,17 @@
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Berita
+                            News
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/search?category=ekonomi">Ekonomi</a></li>
-                            <li><a class="dropdown-item" href="/search?category=kesehatan">Kesehatan</a></li>
-                            <li><a class="dropdown-item" href="/search?category=kuliner">Kuliner</a></li>
-                            <li><a class="dropdown-item" href="/search?category=olahraga">Olahraga</a></li>
-                            <li><a class="dropdown-item" href="/search?category=otomotif">Otomotif</a></li>
-                            <li><a class="dropdown-item" href="/search?category=politik">Politik</a></li>
-                            <li><a class="dropdown-item" href="/search?category=teknologi">Teknologi</a></li>
+                            <li><a class="dropdown-item" href="/search?category=economy">Economy</a></li>
+                            <li><a class="dropdown-item" href="/search?category=health">Health</a></li>
+                            <li><a class="dropdown-item" href="/search?category=culinary">Culinary</a></li>
+                            <li><a class="dropdown-item" href="/search?category=sports">Sports</a></li>
+                            <li><a class="dropdown-item" href="/search?category=automotive">Automotive</a></li>
+                            <li><a class="dropdown-item" href="/search?category=politics">Politics</a></li>
+                            <li><a class="dropdown-item" href="/search?category=technology">Technology</a></li>
                         </ul>
                     </li>
 
@@ -94,7 +94,7 @@
                     </form>
     
                     @if (!Auth::check())
-                        <a href="/login" class="btn btn-primary">Masuk</a>
+                        <a href="/login" class="btn btn-primary">Login</a>
                     @else
                         <form action="/logout" method="post">
                             @csrf
@@ -140,7 +140,7 @@
 
             <img src="/logo.png" alt="logo" style="max-width: 128px; width: 100%;">
 
-            <h5 class="mt-3">Website Portal Berita</h5>
+            <h5 class="mt-3">News Portal</h5>
 
             <p>Copyright &copy; 2024 PT Winnicode Garuda Teknologi</p>
         </div>
@@ -150,14 +150,14 @@
 
             <div class="d-flex justify-content-between">
                 <div>
-                    <a href="/" class="nav-link">Beranda</a>
-                    <a class="nav-link" href="/search?category=ekonomi">Ekonomi</a>
-                    <a class="nav-link" href="/search?category=kesehatan">Kesehatan</a>
-                    <a class="nav-link" href="/search?category=kuliner">Kuliner</a>
-                    <a class="nav-link" href="/search?category=olahraga">Olahraga</a>
-                    <a class="nav-link" href="/search?category=otomotif">Otomotif</a>
-                    <a class="nav-link" href="/search?category=politik">Politik</a>
-                    <a class="nav-link" href="/search?category=teknologi">Teknologi</a>
+                    <a href="/" class="nav-link">Home</a>
+                    <a class="nav-link" href="/search?category=economy">Economy</a>
+                    <a class="nav-link" href="/search?category=health">Health</a>
+                    <a class="nav-link" href="/search?category=culinary">Culinary</a>
+                    <a class="nav-link" href="/search?category=sports">Sports</a>
+                    <a class="nav-link" href="/search?category=automotive">Automotive</a>
+                    <a class="nav-link" href="/search?category=politics">Politics</a>
+                    <a class="nav-link" href="/search?category=technology">Technology</a>
                 </div>
             </div>
         </div>

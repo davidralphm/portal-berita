@@ -22,14 +22,14 @@
                 <label for="category" class="form-label">Category</label>
 
                 <select class="form-control" name="category" id="category">
-                    <option value="" disabled>Pilih Kategori</option>
-                    <option value="olahraga">Olahraga</option>
-                    <option value="kuliner">Kuliner</option>
-                    <option value="kesehatan">Kesehatan</option>
-                    <option value="otomotif">Otomotif</option>
-                    <option value="teknologi">Teknologi</option>
-                    <option value="ekonomi">Ekonomi</option>
-                    <option value="politik">Politik</option>
+                    <option value="" disabled>Choose Category</option>
+                    <option value="sports">Sports</option>
+                    <option value="culinary">Culinary</option>
+                    <option value="health">Health</option>
+                    <option value="automotive">Automotive</option>
+                    <option value="technology">Technology</option>
+                    <option value="economy">Economy</option>
+                    <option value="politics">Politics</option>
                 </select>
             </div>
 

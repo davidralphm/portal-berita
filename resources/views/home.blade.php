@@ -1,9 +1,9 @@
 @extends('layouts.base')
 
-@section('title', 'Beranda')
+@section('title', 'Homepage')
 
 @section('main')
-    <h1 class="my-3 p-3 text-center">Beranda</h1>
+    <h1 class="my-3 p-3 text-center">Homepage</h1>
 
     <x-search-bar
         url="/search"

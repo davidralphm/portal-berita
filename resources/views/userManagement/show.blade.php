@@ -55,7 +55,7 @@
 
             <hr>
 
-            <input type="submit" value="Update User" class="btn btn-primary">
+            <input type="submit" value="Save" class="btn btn-primary">
             
             <a href="/reportManagement/user/{{ $user->id }}/reports" class="btn btn-primary">View Reports</a>
         </form>

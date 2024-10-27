@@ -10,7 +10,7 @@
                 <input type="email" name="email" id="email" class="form-control">
             </div>
             
-            <input type="submit" value="Send Reset Link" class="btn btn-primary">
+            <input type="submit" value="Send Password Reset Link" class="btn btn-primary">
         </form>
 
         <div class="text-center p-3">

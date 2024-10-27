@@ -61,7 +61,7 @@
                 @if ($news->isReported())
                     <a href="/report/news/{{ $news->id }}" style="color: black; text-decoration: none"><i class="fas fa-flag"></i>Edit Report</a>
                 @else
-                    <a href="/report/news/{{ $news->id }}" style="color: black; text-decoration: none"><i class="far fa-flag"></i>Report</a>
+                    <a href="/report/news/{{ $news->id }}" style="color: black; text-decoration: none"><i class="far fa-flag"></i>Report News</a>
                 @endif
                 &nbsp;
 
@@ -109,11 +109,13 @@
                         {{ $comment->user->name }}
                         &nbsp;
 
-                        <a href="/report/user/{{ $comment->user->id }}" style="color: black">
+                        <a href="/report/user/{{ $comment->user->id }}" style="color: black; text-decoration: none">
                             @if ($comment->user->isReported())
                                 <i class="fas fa-flag"></i>
                             @else
                                 <i class="far fa-flag"></i>
+
+                                Report User
                             @endif
                         </a>
                     </h5>
@@ -153,7 +155,7 @@
                             @if ($comment->isReported())
                                 <i class="fas fa-flag"></i> Edit Report
                             @else
-                                <i class="far fa-flag"></i> Report
+                                <i class="far fa-flag"></i> Report Comment
                             @endif
                         </a>
                     </b>
@@ -173,7 +175,7 @@
                     @if ($comment->user_id == Auth::id())
                         <a href="/comment/{{ $comment->id }}" class="btn btn-success">Edit</a>
                         
-                        <form action="/comment/{{ $comment->id }}" method="post">
+                        <form action="/comment/{{ $comment->id }}" method="post" class="ms-3">
                             @csrf
                             @method('DELETE')
 
