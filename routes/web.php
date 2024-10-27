@@ -55,7 +55,7 @@ Route::controller(CommentController::class)->group(function() {
 
 // Reporting functionalities
 
-Route::controller(ReportController::class)->group(function() {
+Route::controller(ReportController::class)->middleware('auth')->group(function() {
     Route::get('/report/user/{id}', 'getReportUser');
     Route::post('/report/user/{id}', 'postReportUser');
     Route::delete('/report/user/{id}', 'deleteReportUser');

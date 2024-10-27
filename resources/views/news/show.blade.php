@@ -172,6 +172,13 @@
 
                     @if ($comment->user_id == Auth::id())
                         <a href="/comment/{{ $comment->id }}" class="btn btn-success">Edit</a>
+                        
+                        <form action="/comment/{{ $comment->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </form>
                     @endif
                 </div>
 

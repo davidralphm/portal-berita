@@ -17,6 +17,23 @@
                 ]"
         />
 
+        <a
+            href="/userManagement/create"
+            class="btn btn-primary rounded-circle"
+            style="
+                line-height: 2rem;
+                font-size: 2rem;
+                position: fixed;
+                right: 2rem;
+                bottom: 2rem;
+                width: 3rem;
+                height: 3rem;
+                box-shadow: 0 0 5px #000000;
+            "
+        >
+            +
+        </a>
+
         <table class="table table-hover">
             <tr>
                 <thead>

@@ -141,7 +141,8 @@ class CommentController extends Controller
 
         $comment->delete();
 
-        return Redirect("/$news->slug")->with('success', 'Comment deleted!');
+        return Redirect()->back()->with('success', 'Comment deleted!');
+        // return Redirect("/$news->slug")->with('success', 'Comment deleted!');
     }
 
     // Function to like a comment

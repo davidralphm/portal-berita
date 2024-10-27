@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,10 @@ use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
+    // For checking if user is blocked
+
+    private bool $isBlocked = false;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -41,12 +46,27 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
+        if (! Auth::attemptWhen(
+            $this->only('email', 'password'),
+            
+            function (User $user) {
+                $this->isBlocked = $user->blocked;
+                
+                return $user->blocked == false;
+            },
 
-            throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
-            ]);
+            $this->boolean('remember'))) {
+                RateLimiter::hit($this->throttleKey());
+
+                if (!$this->isBlocked) {
+                    throw ValidationException::withMessages([
+                        'email' => __('auth.failed'),
+                    ]);
+                } else {
+                    throw ValidationException::withMessages([
+                        'email' => 'Your account is blocked.',
+                    ]);
+                }
         }
 
         RateLimiter::clear($this->throttleKey());

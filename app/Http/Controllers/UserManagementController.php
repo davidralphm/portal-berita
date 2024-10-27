@@ -52,7 +52,7 @@ class UserManagementController extends Controller
 
         $request->validate(
             [
-                'email' => 'required|email',
+                'email' => ['required', 'email', 'string', 'lowercase', 'unique'.User::class],
                 'password' => 'required|confirmed',
                 'name' => 'required',
                 'type' => [

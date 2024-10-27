@@ -128,6 +128,19 @@ class NewsManagementController extends Controller
 
         $this->authorize('isOwner', $news);
 
+        // Delete all uploaded files
+        $uploadedFiles = UploadedFile::where('news_id', '=', $id)->get();
+
+        foreach ($uploadedFiles as $uploadedFile) {
+            try {
+                $delete = unlink(storage_path('/app/public/uploads/' . $uploadedFile->path));
+            } catch (ErrorException) {
+    
+            }
+
+            $uploadedFile->delete();
+        }
+
         $news->delete();
 
         return Redirect('/newsManagement')->with('success', 'News item deleted');

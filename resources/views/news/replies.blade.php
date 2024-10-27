@@ -64,6 +64,13 @@
                 <div class="d-flex">
                     @if ($reply->user_id == Auth::id())
                         <a href="/comment/{{ $reply->id }}" class="btn btn-success">Edit</a>
+                        
+                        <form action="/comment/{{ $reply->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </form>
                     @endif
                 </div>
 

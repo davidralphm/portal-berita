@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('main')
-    <h1 class="my-3 p-3 text-center">Search results for '{{ Request::get('keyword') }}'</h1>
+    <h1 class="my-3 p-3 text-center">Search results for '{{ Request::get('search') }}'</h1>
 
     <x-search-bar
         url="/search"
