@@ -1,9 +1,5 @@
-<div class="" style="gap: 2rem; display: flex; flex-wrap: wrap; min-height: 256px">
-    <!-- <div style="flex: 1 1 256px">
-        <img class="d-block border p-3" src="{{ $news->thumbnail_url }}" alt="Thumbnail">
-    </div> -->
-
-    <div style="flex: 1 1 256px; background: url('{{ $news->thumbnail_url }}')">
+<div class="" style="gap: 2rem; display: flex; flex-wrap: wrap;">
+    <div style="flex: 1 1 256px; background: url('{{ $news->thumbnail_url }}') no-repeat center/contain; min-height: 256px">
     </div>
 
     <div style="flex: 4 1 256px">
@@ -39,11 +35,7 @@
 
                 {{ $news->reportCount() }}
                 <a href="/report/news/{{ $news->id }}" style="color: black; text-decoration: none">
-                    @if ($news->isReported())
-                        <i class="fas fa-flag"></i> Edit Report
-                    @else
-                        <i class="far fa-flag"></i> Report News
-                    @endif
+                    <i class="far fa-flag"></i> Report News
                 </a>
                 &nbsp;
 

@@ -14,13 +14,7 @@
                         &nbsp;
 
                         <a href="/report/user/{{ $reply->user->id }}" style="color: black; text-decoration: none">
-                            @if ($reply->user->isReported())
-                                <i class="fas fa-flag"></i>
-                            @else
-                                <i class="far fa-flag"></i>
-
-                                Report User
-                            @endif
+                            <i class="far fa-flag"></i>
                         </a>
                     </h5>
 
@@ -50,11 +44,7 @@
                         {{ $reply->reportCount() }}
 
                         <a style="color: black; text-decoration: none" href="/report/comment/{{ $reply->id }}">
-                            @if ($reply->isReported())
-                                <i class="fas fa-flag"></i> Edit Report
-                            @else
-                                <i class="far fa-flag"></i> Report Comment
-                            @endif
+                            <i class="far fa-flag"></i> Report Comment
                         </a>
                     </b>
                 </div>

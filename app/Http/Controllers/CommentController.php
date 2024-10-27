@@ -76,8 +76,8 @@ class CommentController extends Controller
             ['body' => 'required|string'],
             
             [
-                'body.required' => 'Comment cannot be empty!',
-                'body.string' => 'Comment must be a string!'
+                'body.required' => 'Reply cannot be empty!',
+                'body.string' => 'Reply must be a string!'
             ]
         );
 
@@ -93,7 +93,8 @@ class CommentController extends Controller
 
         $reply->save();
 
-        return Redirect()->back()->with('success', 'Comment posted!');
+        return Redirect("/comment/$id/replies")->with('success', 'Reply posted!');
+        // return Redirect()->back()->with('success', 'Reply posted!');
         // return Redirect("/{$reply->news->slug}")->with('success', 'Comment posted!');
     }
 

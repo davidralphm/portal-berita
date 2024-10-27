@@ -25,7 +25,7 @@
                     
                     <div class="modal-footer">
                         <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button class="btn btn-primary" onclick="sendReply()">Send message</button>
+                        <button class="btn btn-primary" onclick="sendReply()">Post Reply</button>
                     </div>
                 </div>
             </div>
@@ -58,11 +58,7 @@
                 &nbsp;
 
                 {{ $news->reportCount() }}
-                @if ($news->isReported())
-                    <a href="/report/news/{{ $news->id }}" style="color: black; text-decoration: none"><i class="fas fa-flag"></i>Edit Report</a>
-                @else
-                    <a href="/report/news/{{ $news->id }}" style="color: black; text-decoration: none"><i class="far fa-flag"></i>Report News</a>
-                @endif
+                <a href="/report/news/{{ $news->id }}" style="color: black; text-decoration: none"><i class="far fa-flag"></i>Report News</a>
                 &nbsp;
 
                 @if ($news->isBookmarked())
@@ -110,13 +106,8 @@
                         &nbsp;
 
                         <a href="/report/user/{{ $comment->user->id }}" style="color: black; text-decoration: none">
-                            @if ($comment->user->isReported())
-                                <i class="fas fa-flag"></i>
-                            @else
-                                <i class="far fa-flag"></i>
-
-                                Report User
-                            @endif
+                            <i class="far fa-flag"></i>
+                            Report User
                         </a>
                     </h5>
 
@@ -152,11 +143,7 @@
                         {{ $comment->reportCount() }}
 
                         <a style="color: black; text-decoration: none" href="/report/comment/{{ $comment->id }}">
-                            @if ($comment->isReported())
-                                <i class="fas fa-flag"></i> Edit Report
-                            @else
-                                <i class="far fa-flag"></i> Report Comment
-                            @endif
+                            <i class="far fa-flag"></i> Report Comment
                         </a>
                     </b>
                 </div>

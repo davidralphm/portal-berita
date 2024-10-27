@@ -74,10 +74,11 @@ class CommentManagementController extends Controller
 
         $comment = Comment::findOrFail($commentId);
 
-        $comment->body = 'This comment was deleted';
-        $comment->save();
+        $newsId = $comment->news_id;
 
-        return Redirect("/commentManagement/news/$commentId")->with('success', 'Comment deleted');
+        $comment->delete();
+
+        return Redirect("/commentManagement/news/$newsId")->with('success', 'Comment deleted');
     }
 
     // Show a comment

@@ -41,7 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('isOwner', function($user, $item) {
-            return $user->id == $item->user_id;
+            return $user->id == $item->user_id || $user->type == 'admin';
         });
 
         //

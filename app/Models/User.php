@@ -49,10 +49,4 @@ class User extends Authenticatable
     public function reportCount() {
         return Report::where('reported_user_id', '=', $this->id)->count();
     }
-
-    public function isReported() {
-        return Report::where('user_id', '=', Auth::id())
-        ->where('reported_user_id', '=', $this->id)
-        ->first() != null;
-    }
 }

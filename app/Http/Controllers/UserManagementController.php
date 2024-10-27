@@ -52,7 +52,7 @@ class UserManagementController extends Controller
 
         $request->validate(
             [
-                'email' => ['required', 'email', 'string', 'lowercase', 'unique'.User::class],
+                'email' => ['required', 'email'],
                 'password' => 'required|confirmed',
                 'name' => 'required',
                 'type' => [
@@ -71,6 +71,14 @@ class UserManagementController extends Controller
                 'type.in' => 'Invalid user type',
             ]
         );
+
+        // Make sure email is not already in use
+
+        $checkUser = User::where('email', '=', $request->email)->first();
+
+        if ($checkUser != null) {
+            return Redirect()->back()->with('error', 'Email already in use');
+        }
 
         $user = new User();
 

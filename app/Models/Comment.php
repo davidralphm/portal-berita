@@ -50,10 +50,4 @@ class Comment extends Model
 
         return ($vote != null) ? ($vote->is_like == false) : false;
     }
-
-    public function isReported() {
-        return Report::where('user_id', '=', Auth::id())
-        ->where('reported_comment_id', '=', $this->id)
-        ->first() != null;
-    }
 }

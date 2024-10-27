@@ -52,6 +52,11 @@ class ReportController extends Controller
     public function postReportNews(Request $request, String $id) {
         $news = News::findOrFail($id);
 
+        $request->validate(
+            ['reason' => 'required'],
+            ['reason.required' => 'Reporting reason is required']
+        );
+
         $report = new Report();
 
         $report->created_at = now();
@@ -77,6 +82,11 @@ class ReportController extends Controller
 
     public function postReportComment(Request $request, String $id) {
         $comment = Comment::findOrFail($id);
+
+        $request->validate(
+            ['reason' => 'required'],
+            ['reason.required' => 'Reporting reason is required']
+        );
 
         $report = new Report();
 

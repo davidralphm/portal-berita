@@ -54,7 +54,7 @@
             <a href="/commentManagement/{{ $comment->id }}/replies" class="btn btn-primary">View Replies</a>
             <a href="/reportManagement/comment/{{ $comment->id }}/reports" class="btn btn-primary">View Reports</a>
 
-            <input type="submit" value="Delete Comment" class="btn btn-danger">
+            <input type="submit" value="Delete" class="btn btn-danger">
         </form>
     </div>
 @endsection
