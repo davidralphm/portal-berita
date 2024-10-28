@@ -16,7 +16,7 @@
             </div>
             
             <div class="d-flex justify-content-between">
-                <input type="submit" value="Submit" class="btn btn-primary">
+                <input type="submit" value="Login" class="btn btn-primary">
                 
                 <a href="/forgotPassword" class="btn btn-secondary">Forgot Password</a>
             </div>
