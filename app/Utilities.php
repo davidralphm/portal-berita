@@ -2,6 +2,13 @@
 
 namespace App;
 
+use App\Models\Bookmark;
+use App\Models\Comment;
+use App\Models\News;
+use App\Models\Report;
+use App\Models\UploadedFile;
+use App\Models\Vote;
+use ErrorException;
 use Illuminate\Http\Request;
 
 class Utilities {
@@ -67,5 +74,70 @@ class Utilities {
             'prevPageUrl' => $urlNoPage . '&page=' . ($paginatedResults->currentPage() - 1),
             'nextPageUrl' => $urlNoPage . '&page=' . ($paginatedResults->currentPage() + 1),
         ];
+    }
+
+    // For deleting a comment along with its replies, reports, and votes
+
+    public static function deleteComment($id) {
+        $comment = Comment::find($id);
+        if ($comment == null) return;
+
+        $replies = Comment::where('comment_id', '=', $id)->get();
+
+        foreach ($replies as $reply)
+            Utilities::deleteComment($reply->id);
+
+        $reports = Report::where('reported_comment_id', '=', $id)->get();
+
+        foreach($reports as $report)
+            $report->delete();
+
+        $votes = Vote::where('comment_id', '=', $id)->get();
+
+        foreach($votes as $vote)
+            $vote->delete();
+
+        $comment->delete();
+    }
+
+    // For deleting a news item, along with its bookmarks, comments, reports, uploaded files, and votes
+
+    public static function deleteNews($id) {
+        $news = News::find($id);
+        if ($news == null) return;
+
+        $bookmarks = Bookmark::where('news_id', '=', $id)->get();
+
+        foreach($bookmarks as $bookmark)
+            $bookmark->delete();
+
+        $comments = Comment::where('news_id', '=', $id)->get();
+
+        foreach ($comments as $comment)
+            Utilities::deleteComment($comment->id);
+
+        $reports = Report::where('reported_news_id', '=', $id)->get();
+
+        foreach($reports as $report)
+            $report->delete();
+
+        $uploadedFiles = UploadedFile::where('news_id', '=', $id)->get();
+
+        foreach ($uploadedFiles as $uploadedFile) {
+            try {
+                $delete = unlink(storage_path('/app/public/uploads/' . $uploadedFile->path));
+            } catch (ErrorException) {
+    
+            }
+
+            $uploadedFile->delete();
+        }
+
+        $votes = Vote::where('news_id', '=', $id)->get();
+
+        foreach($votes as $vote)
+            $vote->delete();
+
+        $news->delete();
     }
 }

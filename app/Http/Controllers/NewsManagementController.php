@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bookmark;
+use App\Models\Comment;
 use App\Models\News;
+use App\Models\Report;
 use App\Models\UploadedFile;
+use App\Models\Vote;
 use App\Utilities;
 use ErrorException;
 use Illuminate\Http\Request;
@@ -128,20 +132,7 @@ class NewsManagementController extends Controller
 
         $this->authorize('isOwner', $news);
 
-        // Delete all uploaded files
-        $uploadedFiles = UploadedFile::where('news_id', '=', $id)->get();
-
-        foreach ($uploadedFiles as $uploadedFile) {
-            try {
-                $delete = unlink(storage_path('/app/public/uploads/' . $uploadedFile->path));
-            } catch (ErrorException) {
-    
-            }
-
-            $uploadedFile->delete();
-        }
-
-        $news->delete();
+        Utilities::deleteNews($id);
 
         return Redirect('/newsManagement')->with('success', 'News item deleted');
     }

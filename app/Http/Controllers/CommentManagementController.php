@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\News;
+use App\Models\Report;
+use App\Models\Vote;
 use App\Utilities;
 use Illuminate\Http\Request;
 
@@ -76,7 +78,7 @@ class CommentManagementController extends Controller
 
         $newsId = $comment->news_id;
 
-        $comment->delete();
+        Utilities::deleteComment($commentId);
 
         return Redirect("/commentManagement/news/$newsId")->with('success', 'Comment deleted');
     }

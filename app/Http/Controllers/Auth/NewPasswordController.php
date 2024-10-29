@@ -57,8 +57,6 @@ class NewPasswordController extends Controller
             ]);
         }
 
-        // return response()->json(['status' => __($status)]);
-
         return Redirect('/login')->with('success', __($status));
     }
 }

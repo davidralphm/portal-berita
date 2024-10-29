@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\News;
+use App\Models\Report;
 use App\Models\Vote;
 use App\Utilities;
 use Illuminate\Http\Request;
@@ -68,7 +69,6 @@ class CommentController extends Controller
         $comment->save();
 
         return Redirect()->back()->with('success', 'Comment posted!');
-        // return Redirect("/{$news->slug}")->with('success', 'Comment posted!');
     }
 
     public function storeReply(Request $request, String $id) {
@@ -94,8 +94,6 @@ class CommentController extends Controller
         $reply->save();
 
         return Redirect("/comment/$id/replies")->with('success', 'Reply posted!');
-        // return Redirect()->back()->with('success', 'Reply posted!');
-        // return Redirect("/{$reply->news->slug}")->with('success', 'Comment posted!');
     }
 
     // Function to return the page for editing a comment
@@ -137,13 +135,10 @@ class CommentController extends Controller
         $comment = Comment::findOrFail($id);
 
         $this->authorize('isOwner', $comment);
-        
-        $news = $comment->news;
 
-        $comment->delete();
+        Utilities::deleteComment($id);
 
         return Redirect()->back()->with('success', 'Comment deleted!');
-        // return Redirect("/$news->slug")->with('success', 'Comment deleted!');
     }
 
     // Function to like a comment

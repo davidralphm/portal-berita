@@ -65,8 +65,6 @@ class ReportManagementController extends Controller
         return Redirect('/reportManagement/user')->with('success', 'Report deleted');
     }
 
-
-
     // Show news reports
 
     public function indexNews(Request $request, String $id = "0") {

@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
+use App\Models\Comment;
+use App\Models\News;
+use App\Models\Report;
+use App\Models\UploadedFile;
+use App\Models\Vote;
+use App\Utilities;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -41,8 +47,6 @@ class DashboardController extends Controller
             $user->password = Hash::make($request->password);
         }
 
-        // Profile picture
-
         $user->save();
 
         return Redirect()->back()->with('success', 'Account updated successfully');
@@ -56,6 +60,41 @@ class DashboardController extends Controller
 
         $user = Auth::user();
 
+        // Delete all bookmarks
+        $del = Bookmark::where('user_id', '=', $user->id)->get();
+
+        foreach ($del as $delete)
+            $delete->delete();
+
+        // Delete all comments
+        $del = Comment::where('user_id', '=', $user->id)->get();
+
+        foreach ($del as $delete)
+            Utilities::deleteComment($delete->id);
+
+        // Delete all news
+        $del = News::where('user_id', '=', $user->id)->get();
+
+        foreach ($del as $delete)
+            Utilities::deleteNews($delete->id);
+
+        // Delete all reports
+        $del = Report::where('user_id', '=', $user->id)->get();
+
+        foreach ($del as $delete)
+            $delete->delete();
+
+        $del = Report::where('reported_user_id', '=', $user->id)->get();
+
+        foreach ($del as $delete)
+            $delete->delete();
+
+        // Delete votes
+        $del = Vote::where('user_id', '=', $user->id)->get();
+
+        foreach ($del as $delete)
+            $delete->delete();
+
         Auth::guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
@@ -63,13 +102,5 @@ class DashboardController extends Controller
         $user->delete();
 
         return Redirect('/login')->with('success', 'Account deleted successfully!');
-    }
-
-    // Function to show bookmarks list
-
-    public function bookmarks(String $page = '0') {
-        $bookmarks = Bookmark::where('user_id', '=', Auth::id())->paginate();
-
-        return response($bookmarks);
     }
 }

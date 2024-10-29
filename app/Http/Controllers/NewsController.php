@@ -185,21 +185,6 @@ class NewsController extends Controller
         $bookmarks = Bookmark::where('bookmarks.user_id', '=', Auth::id())
         ->join('news', 'news.id', '=', 'bookmarks.news_id');
 
-        // ->where('news.title', 'like', "%$keyword%")
-        // ->orderBy($sort, $sortOrder)
-        // ->paginate(
-        //     $perPage = 20,
-        //     $columns = [
-        //         'news.title',
-        //         'news.author',
-        //         'news.category',
-        //         'news.thumbnail_url',
-        //         'news.slug',
-        //         'news.description',
-        //         'news.created_at',
-        //     ]
-        // );
-
         $bookmarks = Utilities::sortedSearchLike(
             'news.title', $request->search,
             ['news.id', 'news.created_at', 'news.author', 'news.title', 'news.category'],
