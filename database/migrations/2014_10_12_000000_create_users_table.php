@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('blocked')->default(false);
             $table->string('type')->default('user');
-            $table->string('profile_img_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
