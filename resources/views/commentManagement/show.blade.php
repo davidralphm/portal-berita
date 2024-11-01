@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Comment Details')
+
 @section('main')
     <div class="container p-3">
         <h3 class="text-center ">Comment ID '{{ $comment->id }}'</h3>

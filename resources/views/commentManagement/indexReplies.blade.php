@@ -1,5 +1,7 @@
 @extends ('layouts.base')
 
+@section('title', 'Reply List')
+
 @section('main')
     <h1 class="my-3 p-3 text-center">Replies for comment ID {{ $comment->id }}</h1>
     <hr>

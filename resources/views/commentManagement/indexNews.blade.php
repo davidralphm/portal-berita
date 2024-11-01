@@ -1,5 +1,7 @@
 @extends ('layouts.base')
 
+@section('title', 'Comment List')
+
 @section('main')
     <h1 class="my-3 p-3 text-center">Comments for '{{ $news->title }}'</h1>
     <hr>

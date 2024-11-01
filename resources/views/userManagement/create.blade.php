@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Create User')
+
 @section('main')
     <div class="container p-3">
         <h3 class="text-center ">Create User</h3>

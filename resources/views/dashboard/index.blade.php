@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Dashboard')
+
 @section('main')
     <h1 class="my-3 p-3 text-center">Welcome back, {{ $user->name }}!</h1>
 

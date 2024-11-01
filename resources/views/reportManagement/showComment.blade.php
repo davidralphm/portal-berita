@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Comment Report Details')
+
 @section('main')
     <div class="container p-3">
         <h3 class="text-center ">Report for comment by user '{{ $report->reportedComment->user->name }}'</h3>

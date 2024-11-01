@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Login')
+
 @section('main')
     <div class="container w-75 my-5 shadow rounded-3">
         <form action="/login" method="post" class="p-4">

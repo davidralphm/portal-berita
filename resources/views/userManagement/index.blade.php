@@ -1,5 +1,7 @@
 @extends ('layouts.base')
 
+@section('title', 'User List')
+
 @section('main')
     <h1 class="my-3 p-3 text-center">User List</h1>
     <hr>

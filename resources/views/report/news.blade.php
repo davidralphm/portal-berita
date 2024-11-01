@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Report News')
+
 @section('main')
     <div class="container p-3">
         <h3 class="text-center ">Report News '{{ $news->title }}'</h3>

@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Edit Comment')
+
 @section('main')
     <div class="container p-3 my-5">
         <h3 class="text-center ">Edit Comment</h3>

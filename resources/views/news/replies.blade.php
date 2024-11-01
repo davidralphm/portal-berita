@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Comment Replies')
+
 @section('main')
     <h2 class="text-center">Replies</h2>
 

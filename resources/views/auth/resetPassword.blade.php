@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Reset Password')
+
 @section('main')
     <div class="container w-75 p-3 shadow my-5 rounded-3">
         <form action="/resetPassword" method="post">

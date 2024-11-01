@@ -1,1 +1,0 @@
-Halo, ini testing mail

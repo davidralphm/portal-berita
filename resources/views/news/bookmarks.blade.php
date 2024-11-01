@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Bookmarks')
+
 @section('main')
     <h1 class="my-3 p-3 text-center">Bookmarks</h1>
 

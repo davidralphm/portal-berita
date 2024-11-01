@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'Search Results')
+
 @section('main')
     <h1 class="my-3 p-3 text-center">Search results for '{{ Request::get('search') }}'</h1>
 

@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', $news->title)
+
 @section('main')
     <div class="container">
         <!-- Modal -->

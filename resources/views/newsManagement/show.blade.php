@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'News Details')
+
 @section('main')
     <div class="container p-3">
         <h3 class="text-center ">News Item '{{ Str::title($news->title) }}'</h3>
@@ -88,7 +90,7 @@
             @foreach ($uploadedFiles as $file)
                 <li>
                     <div class="d-flex justify-content-between">
-                        <a class="d-block" href="/storage/uploads/{{ $file->path }}">{{ $file->path }}</a>
+                        <a class="d-block" href="/storage/app/public/uploads/{{ $file->path }}">{{ $file->path }}</a>
     
                         <a href="/newsManagement/deleteUploadedFile/{{ $file->path }}" class="d-block btn btn-danger">Delete File</a>
                     </div>

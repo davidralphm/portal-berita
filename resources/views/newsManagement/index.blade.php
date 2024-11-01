@@ -1,5 +1,7 @@
 @extends ('layouts.base')
 
+@section('title', 'News List')
+
 @section('main')
     <h1 class="my-3 p-3 text-center">News Item List</h1>
     <hr>

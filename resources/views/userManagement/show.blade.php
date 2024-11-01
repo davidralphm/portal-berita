@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('title', 'User Details')
+
 @section('main')
     <div class="container p-3">
         <h3 class="text-center ">User '{{ $user->name }}'</h3>
